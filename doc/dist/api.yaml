@@ -1,0 +1,568 @@
+openapi: 3.0.3
+info:
+  x-logo:
+    url: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPHRvtFUvNT9Rrpz2HE4gu05hPPg8m7DweCg&usqp=CAU
+  title: API TeamStore
+  description: |-
+    API TeamStore
+
+    # Authentication
+
+    Token JWT (todo) - Auth is not implemented yet ..
+
+    <!-- ReDoc-Inject: <security-definitions> -->
+  termsOfService: https://remy-ranger.raveon.fr/
+  contact:
+    name: Ranger Rémy
+    email: remy.ranger@gmail.com
+    url: https://remy-ranger.raveon.fr/
+  version: 0.1.0
+  license:
+    name: Rémy Ranger
+    url: https://remy-ranger.raveon.fr/
+servers:
+  - url: https://api-{env}.remy-ranger.fr/v1/teamstore
+    description: ci/staging APIs URL.
+    variables:
+      env:
+        description: environment
+        default: staging
+        enum:
+          - ci
+          - staging
+security:
+  - bearerAuth: []
+externalDocs:
+  description: Documentation
+  url: https://remy-ranger.raveon.fr/
+paths:
+  /healthcheck:
+    get:
+      tags:
+        - Healthcheck
+      summary: Health Check
+      description: The healthcheck endpoint retrieve 200 code if service is up.
+      operationId: GetHealth
+      responses:
+        '200':
+          description: Request succeed
+        '400':
+          $ref: '#/components/responses/400_Error'
+        '503':
+          $ref: '#/components/responses/503_Error'
+  /members:
+    get:
+      tags:
+        - Members
+      summary: List Members
+      description: List Members with pagination.
+      operationId: ListMembers
+      parameters:
+        - $ref: '#/components/parameters/queryPageSize'
+        - $ref: '#/components/parameters/queryPageToken'
+        - $ref: '#/components/parameters/queryOrderBy'
+        - $ref: '#/components/parameters/querySortDirDesc'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paginatedMembers'
+        '400':
+          $ref: '#/components/responses/400_Error'
+        '401':
+          $ref: '#/components/responses/401_Error'
+        '403':
+          $ref: '#/components/responses/403_Error'
+        '500':
+          $ref: '#/components/responses/500_Error'
+        '503':
+          $ref: '#/components/responses/503_Error'
+    post:
+      tags:
+        - Members
+      summary: Create Member
+      description: Create a Member in database.
+      operationId: CreateMember
+      requestBody:
+        description: Member to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/memberIn'
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/memberOut'
+        '400':
+          $ref: '#/components/responses/400_Error'
+        '401':
+          $ref: '#/components/responses/401_Error'
+        '403':
+          $ref: '#/components/responses/403_Error'
+        '500':
+          $ref: '#/components/responses/500_Error'
+        '503':
+          $ref: '#/components/responses/503_Error'
+  /members/{id}:
+    parameters:
+      - name: id
+        in: path
+        description: Member ID
+        required: true
+        schema:
+          type: integer
+          format: int64
+    get:
+      tags:
+        - Members
+      summary: Get Member
+      description: Returns a Member based on a single ID
+      operationId: GetMember
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/memberOut'
+        '401':
+          $ref: '#/components/responses/401_Error'
+        '403':
+          $ref: '#/components/responses/403_Error'
+        '404':
+          $ref: '#/components/responses/404_Error'
+        '500':
+          $ref: '#/components/responses/500_Error'
+        '503':
+          $ref: '#/components/responses/503_Error'
+    put:
+      tags:
+        - Members
+      summary: Update Member
+      description: Update a Member based on a single ID
+      operationId: UpdateMember
+      requestBody:
+        description: Body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/memberIn'
+      responses:
+        '204':
+          description: Successful operation - No content
+        '400':
+          $ref: '#/components/responses/400_Error'
+        '401':
+          $ref: '#/components/responses/401_Error'
+        '403':
+          $ref: '#/components/responses/403_Error'
+        '404':
+          $ref: '#/components/responses/404_Error'
+        '500':
+          $ref: '#/components/responses/500_Error'
+        '503':
+          $ref: '#/components/responses/503_Error'
+    delete:
+      tags:
+        - Members
+      summary: Delete Member
+      description: Delete a Member based on a single ID
+      operationId: DeleteMember
+      responses:
+        '204':
+          description: Successful operation - No content
+        '400':
+          $ref: '#/components/responses/400_Error'
+        '401':
+          $ref: '#/components/responses/401_Error'
+        '403':
+          $ref: '#/components/responses/403_Error'
+        '404':
+          $ref: '#/components/responses/404_Error'
+        '500':
+          $ref: '#/components/responses/500_Error'
+        '503':
+          $ref: '#/components/responses/503_Error'
+  /teams:
+    get:
+      tags:
+        - Teams
+      summary: List Teams
+      description: List Teams with pagination.
+      operationId: ListTeams
+      parameters:
+        - $ref: '#/components/parameters/queryPageSize'
+        - $ref: '#/components/parameters/queryPageToken'
+        - $ref: '#/components/parameters/queryOrderBy'
+        - $ref: '#/components/parameters/querySortDirDesc'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/paginatedTeams'
+        '400':
+          $ref: '#/components/responses/400_Error'
+        '401':
+          $ref: '#/components/responses/401_Error'
+        '403':
+          $ref: '#/components/responses/403_Error'
+        '500':
+          $ref: '#/components/responses/500_Error'
+        '503':
+          $ref: '#/components/responses/503_Error'
+    post:
+      tags:
+        - Teams
+      summary: Create Team
+      description: Create a Team in database.
+      operationId: CreateTeam
+      requestBody:
+        description: Team to create
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/teamIn'
+      responses:
+        '201':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/teamOut'
+        '400':
+          $ref: '#/components/responses/400_Error'
+        '401':
+          $ref: '#/components/responses/401_Error'
+        '403':
+          $ref: '#/components/responses/403_Error'
+        '500':
+          $ref: '#/components/responses/500_Error'
+        '503':
+          $ref: '#/components/responses/503_Error'
+  /teams/{id}:
+    parameters:
+      - name: id
+        in: path
+        description: Team ID
+        required: true
+        schema:
+          type: integer
+          format: int64
+    get:
+      tags:
+        - Teams
+      summary: Get Team
+      description: Returns a Team based on a single ID
+      operationId: GetTeam
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/teamOut'
+        '401':
+          $ref: '#/components/responses/401_Error'
+        '403':
+          $ref: '#/components/responses/403_Error'
+        '404':
+          $ref: '#/components/responses/404_Error'
+        '500':
+          $ref: '#/components/responses/500_Error'
+        '503':
+          $ref: '#/components/responses/503_Error'
+    put:
+      tags:
+        - Teams
+      summary: Update Team
+      description: Update a Team based on a single ID
+      operationId: UpdateTeam
+      requestBody:
+        description: Body
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/teamIn'
+      responses:
+        '204':
+          description: Successful operation - No content
+        '400':
+          $ref: '#/components/responses/400_Error'
+        '401':
+          $ref: '#/components/responses/401_Error'
+        '403':
+          $ref: '#/components/responses/403_Error'
+        '404':
+          $ref: '#/components/responses/404_Error'
+        '500':
+          $ref: '#/components/responses/500_Error'
+        '503':
+          $ref: '#/components/responses/503_Error'
+    delete:
+      tags:
+        - Teams
+      summary: Delete Team
+      description: Delete a Team based on a single ID. All linked members will be deleted too !
+      operationId: DeleteTeam
+      responses:
+        '204':
+          description: Successful operation - No content
+        '400':
+          $ref: '#/components/responses/400_Error'
+        '401':
+          $ref: '#/components/responses/401_Error'
+        '403':
+          $ref: '#/components/responses/403_Error'
+        '404':
+          $ref: '#/components/responses/404_Error'
+        '500':
+          $ref: '#/components/responses/500_Error'
+        '503':
+          $ref: '#/components/responses/503_Error'
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    ModelError:
+      description: A representation of an errorMessage
+      type: object
+      properties:
+        errorMessage:
+          type: string
+          description: error Message
+    memberIn:
+      type: object
+      required:
+        - team_id
+        - first_name
+        - last_name
+        - status
+      properties:
+        team_id:
+          type: integer
+          format: int64
+          description: Team linked ID
+          example: 643324
+          x-oapi-codegen-extra-tags:
+            validate: required
+        first_name:
+          type: string
+          description: Prénom
+          example: Harry
+          x-oapi-codegen-extra-tags:
+            validate: required
+        last_name:
+          type: string
+          description: Nom
+          example: Potter
+          x-oapi-codegen-extra-tags:
+            validate: required
+        status:
+          type: string
+          description: Statut
+          example: frontend
+          enum:
+            - frontend
+            - backend
+            - ops
+          x-oapi-codegen-extra-tags:
+            validate: required,oneof=frontend backend ops
+    memberOut:
+      type: object
+      required:
+        - id
+        - create_at
+        - update_at
+      allOf:
+        - properties:
+            id:
+              type: integer
+              format: int64
+              description: ID
+              example: 1554029
+            create_at:
+              type: string
+              format: date-time
+              description: Create date (Format ISO 8601)
+              example: '2021-01-07T11:51:45.000Z'
+            update_at:
+              type: string
+              format: date-time
+              description: Last update date (Format ISO 8601)
+              example: '2021-01-07T11:51:45.000Z'
+        - $ref: '#/components/schemas/memberIn'
+    paginatedMembers:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+          minimum: 0
+          description: Total objects found
+          example: 18
+        members:
+          type: array
+          description: Members fetched
+          items:
+            $ref: '#/components/schemas/memberOut'
+          maxItems: 100
+    teamIn:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+          description: Nom de l'équipe
+          example: Les semi-croutillants
+          x-oapi-codegen-extra-tags:
+            validate: required
+    teamOut:
+      type: object
+      required:
+        - id
+        - create_at
+        - update_at
+        - members
+      allOf:
+        - properties:
+            id:
+              type: integer
+              format: int64
+              description: ID
+              example: 1554029
+            create_at:
+              type: string
+              format: date-time
+              description: Create date (Format ISO 8601)
+              example: '2021-01-07T11:51:45.000Z'
+            update_at:
+              type: string
+              format: date-time
+              description: Last update date (Format ISO 8601)
+              example: '2021-01-07T11:51:45.000Z'
+            members:
+              type: array
+              description: Team members
+              items:
+                $ref: '#/components/schemas/memberOut'
+              maxItems: 10
+        - $ref: '#/components/schemas/teamIn'
+    paginatedTeams:
+      type: object
+      properties:
+        count:
+          type: integer
+          format: int64
+          minimum: 0
+          description: Total objects found
+          example: 18
+        teams:
+          type: array
+          description: Teams fetched
+          items:
+            $ref: '#/components/schemas/teamOut'
+          maxItems: 100
+  responses:
+    400_Error:
+      description: Bad Request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ModelError'
+          example:
+            errorMessage: Bad Request
+    503_Error:
+      description: Service Unavailable
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ModelError'
+          example:
+            errorMessage: Service Unavailable
+    401_Error:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ModelError'
+          example:
+            errorMessage: Unauthorized
+    403_Error:
+      description: Forbidden
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ModelError'
+          example:
+            errorMessage: Forbidden
+    500_Error:
+      description: Internal Server Error
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ModelError'
+          example:
+            errorMessage: Internal Server Error
+    404_Error:
+      description: Not Found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ModelError'
+          example:
+            errorMessage: Not Found
+  parameters:
+    queryPageSize:
+      name: page_size
+      in: query
+      required: false
+      description: Pagination size
+      x-oapi-codegen-extra-tags:
+        validate: omitempty,gte=1,lte=100
+      schema:
+        type: integer
+        format: int64
+        default: 10
+        minimum: 1
+        maximum: 100
+    queryPageToken:
+      name: page_token
+      in: query
+      required: false
+      description: Page index token
+      x-oapi-codegen-extra-tags:
+        validate: omitempty,gte=1
+      schema:
+        type: integer
+        format: int64
+        default: 1
+        minimum: 1
+    queryOrderBy:
+      name: order_by
+      in: query
+      required: false
+      description: order by field
+      schema:
+        type: string
+    querySortDirDesc:
+      name: sort_dir_desc
+      in: query
+      required: false
+      description: is sorting desc
+      schema:
+        type: boolean

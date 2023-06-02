@@ -1,0 +1,59 @@
+get:
+  tags:
+    - Teams
+  summary: List Teams
+  description: List Teams with pagination.
+  operationId: ListTeams
+  parameters:
+    - $ref: '../../components/parameters/query/queryPageSize.yaml'
+    - $ref: '../../components/parameters/query/queryPageToken.yaml'
+    - $ref: '../../components/parameters/query/queryOrderBy.yaml'
+    - $ref: '../../components/parameters/query/querySortDirDesc.yaml'
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/teams/paginatedTeams.yaml'
+    '400':
+      $ref: '../../components/errors/400_Error.yaml'
+    '401':
+      $ref: '../../components/errors/401_Error.yaml'
+    '403':
+      $ref: '../../components/errors/403_Error.yaml'
+    '500':
+      $ref: '../../components/errors/500_Error.yaml'
+    '503':
+      $ref: '../../components/errors/503_Error.yaml'
+
+post:
+  tags:
+    - Teams
+  summary: Create Team
+  description: Create a Team in database.
+  operationId: CreateTeam
+  requestBody:
+    description: Team to create
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/teams/teamIn.yaml'
+  responses:
+    '201':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/teams/teamOut.yaml'
+    '400':
+      $ref: '../../components/errors/400_Error.yaml'
+    '401':
+      $ref: '../../components/errors/401_Error.yaml'
+    '403':
+      $ref: '../../components/errors/403_Error.yaml'
+    '500':
+      $ref: '../../components/errors/500_Error.yaml'
+    '503':
+      $ref: '../../components/errors/503_Error.yaml'

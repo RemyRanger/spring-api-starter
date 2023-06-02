@@ -1,0 +1,36 @@
+type: object
+required:
+  - team_id
+  - first_name
+  - last_name
+  - status
+properties:
+  team_id:
+    type: integer
+    format: int64
+    description: Team linked ID
+    example: 643324
+    x-oapi-codegen-extra-tags:
+      validate: 'required'
+  first_name:
+    type: string
+    description: Prénom
+    example: 'Harry'
+    x-oapi-codegen-extra-tags:
+      validate: 'required'
+  last_name:
+    type: string
+    description: Nom
+    example: 'Potter'
+    x-oapi-codegen-extra-tags:
+      validate: 'required'
+  status:
+    type: string
+    description: Statut
+    example: 'frontend'
+    enum:
+      - frontend
+      - backend
+      - ops
+    x-oapi-codegen-extra-tags:
+      validate: 'required,oneof=frontend backend ops'

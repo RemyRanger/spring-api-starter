@@ -1,0 +1,83 @@
+parameters:
+  - name: id
+    in: path
+    description: Team ID
+    required: true
+    schema:
+      type: integer
+      format: int64
+
+get:
+  tags:
+    - Teams
+  summary: Get Team
+  description: Returns a Team based on a single ID
+  operationId: GetTeam
+  responses:
+    '200':
+      description: Successful operation
+      content:
+        application/json:
+          schema:
+            $ref: '../../components/schemas/teams/teamOut.yaml'
+    '401':
+      $ref: '../../components/errors/401_Error.yaml'
+    '403':
+      $ref: '../../components/errors/403_Error.yaml'
+    '404':
+      $ref: '../../components/errors/404_Error.yaml'
+    '500':
+      $ref: '../../components/errors/500_Error.yaml'
+    '503':
+      $ref: '../../components/errors/503_Error.yaml'
+
+put:
+  tags:
+    - Teams
+  summary: Update Team
+  description: Update a Team based on a single ID
+  operationId: UpdateTeam
+  requestBody:
+    description: Body
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: '../../components/schemas/teams/teamIn.yaml'
+  responses:
+    '204':
+      description: Successful operation - No content
+    '400':
+      $ref: '../../components/errors/400_Error.yaml'
+    '401':
+      $ref: '../../components/errors/401_Error.yaml'
+    '403':
+      $ref: '../../components/errors/403_Error.yaml'
+    '404':
+      $ref: '../../components/errors/404_Error.yaml'
+    '500':
+      $ref: '../../components/errors/500_Error.yaml'
+    '503':
+      $ref: '../../components/errors/503_Error.yaml'
+
+delete:
+  tags:
+    - Teams
+  summary: Delete Team
+  description: Delete a Team based on a single ID. All linked members will be deleted too !
+  operationId: DeleteTeam
+  responses:
+    '204':
+      description: Successful operation - No content
+    '400':
+      $ref: '../../components/errors/400_Error.yaml'
+    '401':
+      $ref: '../../components/errors/401_Error.yaml'
+    '403':
+      $ref: '../../components/errors/403_Error.yaml'
+    '404':
+      $ref: '../../components/errors/404_Error.yaml'
+    '500':
+      $ref: '../../components/errors/500_Error.yaml'
+    '503':
+      $ref: '../../components/errors/503_Error.yaml'

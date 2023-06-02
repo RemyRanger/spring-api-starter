@@ -1,0 +1,14 @@
+type: object
+properties:
+  count:
+    type: integer
+    format: int64
+    minimum: 0
+    description: Total objects found
+    example: 18
+  members:
+    type: array
+    description: Members fetched
+    items:
+      $ref: 'memberOut.yaml'
+    maxItems: 100
