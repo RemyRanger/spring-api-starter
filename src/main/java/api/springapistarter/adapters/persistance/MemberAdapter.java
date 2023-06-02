@@ -59,5 +59,14 @@ public class MemberAdapter implements IMemberPort {
         entity.setId(id);
         memberRepository.save(entity);
     }
+
+    @Override
+    public boolean existsById(Long id) {
+        return memberRepository.existsById(id);
+    }
     
+    @Override
+    public long countMembersByTeamId(Long id) {
+        return memberRepository.countMembersByTeamId(id);
+    }
 }

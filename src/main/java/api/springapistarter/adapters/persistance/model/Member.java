@@ -2,6 +2,9 @@ package api.springapistarter.adapters.persistance.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,4 +31,8 @@ public class Member extends AbstractEntity {
 
     @Column(name = "team_id")
     private Long teamId;
+
+    @ManyToOne(fetch = FetchType.LAZY) 
+	@JoinColumn(name = "team_id", insertable = false, updatable = false)
+	private Team team;
 }

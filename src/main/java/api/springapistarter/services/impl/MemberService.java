@@ -3,9 +3,11 @@ package api.springapistarter.services.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import api.springapistarter.adapters.persistance.model.Member;
+import api.springapistarter.config.exception.TeamMembersFullException;
 import api.springapistarter.services.IMemberService;
 import api.springapistarter.services.ports.IMemberPort;
 import lombok.AllArgsConstructor;
@@ -18,6 +20,10 @@ public class MemberService implements IMemberService {
 
     @Override
     public Member createMember(Member entity) {
+        if (memberAdapter.countMembersByTeamId(entity.getTeamId()) >= 10) {
+            throw new TeamMembersFullException();
+        }
+
         return memberAdapter.save(entity);
     }
 
@@ -38,6 +44,14 @@ public class MemberService implements IMemberService {
 
     @Override
     public void updateMember(Long id, Member entity) {
+        if (!memberAdapter.existsById(id)) {
+            throw new DataIntegrityViolationException("Member not found");
+        }
+
+        if (memberAdapter.countMembersByTeamId(entity.getTeamId()) >= 10) {
+            throw new TeamMembersFullException();
+        }
+
         memberAdapter.update(id, entity);
     }
 

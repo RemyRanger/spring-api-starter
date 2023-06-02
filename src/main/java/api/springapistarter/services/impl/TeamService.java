@@ -3,6 +3,7 @@ package api.springapistarter.services.impl;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 
 import api.springapistarter.adapters.persistance.model.Team;
@@ -38,6 +39,10 @@ public class TeamService implements ITeamService {
 
     @Override
     public void updateTeam(Long id, Team entity) {
+        if (!teamAdapter.existsById(id)) {
+            throw new DataIntegrityViolationException("Team not found");
+        }
+
         teamAdapter.update(id, entity);
     }
 

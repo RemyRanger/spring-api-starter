@@ -7,6 +7,10 @@ import api.springapistarter.adapters.persistance.model.Member;
 
 public interface IMemberPort {
 
+    long countMembersByTeamId(Long id);
+
+    boolean existsById(Long id);
+
     Member save(Member entity);
 
     void deleteById(Long id);

@@ -59,5 +59,9 @@ public class TeamAdapter implements ITeamPort {
         entity.setId(id);
         teamRepository.save(entity);
     }
-    
+
+    @Override
+    public boolean existsById(Long id) {
+        return teamRepository.existsById(id);
+    }
 }

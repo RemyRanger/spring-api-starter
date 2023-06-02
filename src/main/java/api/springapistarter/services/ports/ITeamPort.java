@@ -7,6 +7,8 @@ import api.springapistarter.adapters.persistance.model.Team;
 
 public interface ITeamPort {
 
+    boolean existsById(Long id);
+
     Team save(Team entity);
 
     void deleteById(Long id);

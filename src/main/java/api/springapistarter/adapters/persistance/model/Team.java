@@ -2,6 +2,7 @@ package api.springapistarter.adapters.persistance.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -24,6 +25,6 @@ public class Team extends AbstractEntity {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(fetch = FetchType.EAGER, targetEntity=Member.class, mappedBy="teamId")    
+    @OneToMany(fetch = FetchType.EAGER, targetEntity=Member.class, mappedBy="teamId", cascade = CascadeType.ALL)
     private List<Member> members;
 }

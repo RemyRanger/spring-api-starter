@@ -16,4 +16,5 @@ public interface ITeamService {
     List<Team> listTeams(Long pageSize, Long pageToken, String orderBy, Boolean sortDirDesc);
 
     void updateTeam(Long id, Team entity);
+
 }
