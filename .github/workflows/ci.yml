@@ -6,6 +6,15 @@ on:
   push:
     branches:
       - main
+
+env:
+  GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   #Generate API documentation
   generate:
