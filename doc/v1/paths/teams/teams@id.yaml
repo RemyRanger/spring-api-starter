@@ -20,10 +20,6 @@ get:
         application/json:
           schema:
             $ref: '../../components/schemas/teams/teamOut.yaml'
-    '401':
-      $ref: '../../components/errors/401_Error.yaml'
-    '403':
-      $ref: '../../components/errors/403_Error.yaml'
     '404':
       $ref: '../../components/errors/404_Error.yaml'
     '500':
@@ -49,10 +45,6 @@ put:
       description: Successful operation - No content
     '400':
       $ref: '../../components/errors/400_Error.yaml'
-    '401':
-      $ref: '../../components/errors/401_Error.yaml'
-    '403':
-      $ref: '../../components/errors/403_Error.yaml'
     '404':
       $ref: '../../components/errors/404_Error.yaml'
     '500':
@@ -71,10 +63,6 @@ delete:
       description: Successful operation - No content
     '400':
       $ref: '../../components/errors/400_Error.yaml'
-    '401':
-      $ref: '../../components/errors/401_Error.yaml'
-    '403':
-      $ref: '../../components/errors/403_Error.yaml'
     '404':
       $ref: '../../components/errors/404_Error.yaml'
     '500':

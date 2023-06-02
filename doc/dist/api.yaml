@@ -57,24 +57,19 @@ paths:
       summary: List Members
       description: List Members with pagination.
       operationId: ListMembers
-      parameters:
-        - $ref: '#/components/parameters/queryPageSize'
-        - $ref: '#/components/parameters/queryPageToken'
-        - $ref: '#/components/parameters/queryOrderBy'
-        - $ref: '#/components/parameters/querySortDirDesc'
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/paginatedMembers'
+                type: array
+                description: Teams fetched
+                items:
+                  $ref: '#/components/schemas/memberOut'
+                maxItems: 100
         '400':
           $ref: '#/components/responses/400_Error'
-        '401':
-          $ref: '#/components/responses/401_Error'
-        '403':
-          $ref: '#/components/responses/403_Error'
         '500':
           $ref: '#/components/responses/500_Error'
         '503':
@@ -101,10 +96,6 @@ paths:
                 $ref: '#/components/schemas/memberOut'
         '400':
           $ref: '#/components/responses/400_Error'
-        '401':
-          $ref: '#/components/responses/401_Error'
-        '403':
-          $ref: '#/components/responses/403_Error'
         '500':
           $ref: '#/components/responses/500_Error'
         '503':
@@ -131,10 +122,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/memberOut'
-        '401':
-          $ref: '#/components/responses/401_Error'
-        '403':
-          $ref: '#/components/responses/403_Error'
         '404':
           $ref: '#/components/responses/404_Error'
         '500':
@@ -159,10 +146,6 @@ paths:
           description: Successful operation - No content
         '400':
           $ref: '#/components/responses/400_Error'
-        '401':
-          $ref: '#/components/responses/401_Error'
-        '403':
-          $ref: '#/components/responses/403_Error'
         '404':
           $ref: '#/components/responses/404_Error'
         '500':
@@ -180,10 +163,6 @@ paths:
           description: Successful operation - No content
         '400':
           $ref: '#/components/responses/400_Error'
-        '401':
-          $ref: '#/components/responses/401_Error'
-        '403':
-          $ref: '#/components/responses/403_Error'
         '404':
           $ref: '#/components/responses/404_Error'
         '500':
@@ -197,24 +176,19 @@ paths:
       summary: List Teams
       description: List Teams with pagination.
       operationId: ListTeams
-      parameters:
-        - $ref: '#/components/parameters/queryPageSize'
-        - $ref: '#/components/parameters/queryPageToken'
-        - $ref: '#/components/parameters/queryOrderBy'
-        - $ref: '#/components/parameters/querySortDirDesc'
       responses:
         '200':
           description: Successful operation
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/paginatedTeams'
+                type: array
+                description: Teams fetched
+                items:
+                  $ref: '#/components/schemas/teamOut'
+                maxItems: 100
         '400':
           $ref: '#/components/responses/400_Error'
-        '401':
-          $ref: '#/components/responses/401_Error'
-        '403':
-          $ref: '#/components/responses/403_Error'
         '500':
           $ref: '#/components/responses/500_Error'
         '503':
@@ -241,10 +215,6 @@ paths:
                 $ref: '#/components/schemas/teamOut'
         '400':
           $ref: '#/components/responses/400_Error'
-        '401':
-          $ref: '#/components/responses/401_Error'
-        '403':
-          $ref: '#/components/responses/403_Error'
         '500':
           $ref: '#/components/responses/500_Error'
         '503':
@@ -271,10 +241,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/teamOut'
-        '401':
-          $ref: '#/components/responses/401_Error'
-        '403':
-          $ref: '#/components/responses/403_Error'
         '404':
           $ref: '#/components/responses/404_Error'
         '500':
@@ -299,10 +265,6 @@ paths:
           description: Successful operation - No content
         '400':
           $ref: '#/components/responses/400_Error'
-        '401':
-          $ref: '#/components/responses/401_Error'
-        '403':
-          $ref: '#/components/responses/403_Error'
         '404':
           $ref: '#/components/responses/404_Error'
         '500':
@@ -320,10 +282,6 @@ paths:
           description: Successful operation - No content
         '400':
           $ref: '#/components/responses/400_Error'
-        '401':
-          $ref: '#/components/responses/401_Error'
-        '403':
-          $ref: '#/components/responses/403_Error'
         '404':
           $ref: '#/components/responses/404_Error'
         '500':
@@ -405,21 +363,6 @@ components:
               description: Last update date (Format ISO 8601)
               example: '2021-01-07T11:51:45.000Z'
         - $ref: '#/components/schemas/memberIn'
-    paginatedMembers:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int64
-          minimum: 0
-          description: Total objects found
-          example: 18
-        members:
-          type: array
-          description: Members fetched
-          items:
-            $ref: '#/components/schemas/memberOut'
-          maxItems: 100
     teamIn:
       type: object
       required:
@@ -462,21 +405,6 @@ components:
                 $ref: '#/components/schemas/memberOut'
               maxItems: 10
         - $ref: '#/components/schemas/teamIn'
-    paginatedTeams:
-      type: object
-      properties:
-        count:
-          type: integer
-          format: int64
-          minimum: 0
-          description: Total objects found
-          example: 18
-        teams:
-          type: array
-          description: Teams fetched
-          items:
-            $ref: '#/components/schemas/teamOut'
-          maxItems: 100
   responses:
     400_Error:
       description: Bad Request
@@ -494,22 +422,6 @@ components:
             $ref: '#/components/schemas/ModelError'
           example:
             errorMessage: Service Unavailable
-    401_Error:
-      description: Unauthorized
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ModelError'
-          example:
-            errorMessage: Unauthorized
-    403_Error:
-      description: Forbidden
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ModelError'
-          example:
-            errorMessage: Forbidden
     500_Error:
       description: Internal Server Error
       content:
@@ -526,43 +438,3 @@ components:
             $ref: '#/components/schemas/ModelError'
           example:
             errorMessage: Not Found
-  parameters:
-    queryPageSize:
-      name: page_size
-      in: query
-      required: false
-      description: Pagination size
-      x-oapi-codegen-extra-tags:
-        validate: omitempty,gte=1,lte=100
-      schema:
-        type: integer
-        format: int64
-        default: 10
-        minimum: 1
-        maximum: 100
-    queryPageToken:
-      name: page_token
-      in: query
-      required: false
-      description: Page index token
-      x-oapi-codegen-extra-tags:
-        validate: omitempty,gte=1
-      schema:
-        type: integer
-        format: int64
-        default: 1
-        minimum: 1
-    queryOrderBy:
-      name: order_by
-      in: query
-      required: false
-      description: order by field
-      schema:
-        type: string
-    querySortDirDesc:
-      name: sort_dir_desc
-      in: query
-      required: false
-      description: is sorting desc
-      schema:
-        type: boolean

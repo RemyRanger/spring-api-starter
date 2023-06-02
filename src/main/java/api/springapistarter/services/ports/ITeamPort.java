@@ -15,7 +15,7 @@ public interface ITeamPort {
 
     Optional<Team> findById(Long id);
 
-    List<Team> findAllPaginated(Long pageSize, Long pageToken, String orderBy, Boolean sortDirDesc);
+    List<Team> findAll();
 
     void update(Long id, Team entity);
 }

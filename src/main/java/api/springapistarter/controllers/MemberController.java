@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.mapstruct.factory.Mappers;
 import org.openapitools.api.MembersApi;
 import org.openapitools.model.MemberOut;
-import org.openapitools.model.PaginatedMembers;
 import org.openapitools.model.MemberIn;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,14 +47,8 @@ public class MemberController implements MembersApi {
     }
 
     @Override
-    public ResponseEntity<PaginatedMembers> listMembers(Long pageSize, Long pageToken, String orderBy, Boolean sortDirDesc) {
-
-        final List<Member> memberList = memberService.listMembers(pageSize, pageToken, orderBy, sortDirDesc);
-
-        final PaginatedMembers paginatedMembers = new PaginatedMembers();
-        paginatedMembers.setMembers(memberMapper.membersToMemberOuts(memberList));
-
-        return ResponseEntity.ok(paginatedMembers);
+    public ResponseEntity<List<MemberOut>> listMembers() {
+        return ResponseEntity.ok(memberMapper.membersToMemberOuts(memberService.listMembers()));
     }
 
     @Override

@@ -3,6 +3,7 @@ package api.springapistarter.adapters.persistance;
 import java.util.List;
 import java.util.Optional;
 
+import org.apache.commons.collections4.IteratorUtils;
 import org.springframework.stereotype.Component;
 
 import api.springapistarter.adapters.persistance.model.Member;
@@ -32,26 +33,8 @@ public class MemberAdapter implements IMemberPort {
     }
 
     @Override
-    public List<Member> findAllPaginated(Long pageSize, Long pageToken, String orderBy, Boolean sortDirDesc) {
-        int size = 10;
-        int offset = 0;
-        String order = "";
-
-        if (pageSize != 0) {
-            size = pageSize.intValue();
-        }
-        if (pageToken != 0) {
-            offset = (pageToken.intValue() - 1) * size;
-        }
-        if (orderBy != null) {
-            if (sortDirDesc == true) {
-                order = orderBy + " desc";
-            } else {
-                order = orderBy + " asc";
-            }
-        }
-
-        return memberRepository.findAllPaginated(size, order, offset);
+    public List<Member> findAll() {
+        return IteratorUtils.toList(memberRepository.findAll().iterator());
     }
 
     @Override

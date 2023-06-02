@@ -13,7 +13,7 @@ public interface IMemberService {
 
     Optional<Member> getMember(Long id);
 
-    List<Member> listMembers(Long pageSize, Long pageToken, String orderBy, Boolean sortDirDesc);
+    List<Member> listMembers();
 
     void updateMember(Long id, Member entity);
 

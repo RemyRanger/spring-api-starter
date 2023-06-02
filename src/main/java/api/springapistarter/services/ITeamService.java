@@ -13,7 +13,7 @@ public interface ITeamService {
 
     Optional<Team> getTeam(Long id);
 
-    List<Team> listTeams(Long pageSize, Long pageToken, String orderBy, Boolean sortDirDesc);
+    List<Team> listTeams();
 
     void updateTeam(Long id, Team entity);
 

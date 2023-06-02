@@ -33,8 +33,8 @@ public class TeamService implements ITeamService {
     }
 
     @Override
-    public List<Team> listTeams(Long pageSize, Long pageToken, String orderBy, Boolean sortDirDesc) {
-        return teamAdapter.findAllPaginated(pageSize, pageToken, orderBy, sortDirDesc);
+    public List<Team> listTeams() {
+        return teamAdapter.findAll();
     }
 
     @Override

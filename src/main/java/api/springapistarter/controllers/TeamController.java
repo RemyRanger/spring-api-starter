@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.mapstruct.factory.Mappers;
 import org.openapitools.api.TeamsApi;
 import org.openapitools.model.TeamOut;
-import org.openapitools.model.PaginatedTeams;
 import org.openapitools.model.TeamIn;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -48,14 +47,8 @@ public class TeamController implements TeamsApi {
     }
 
     @Override
-    public ResponseEntity<PaginatedTeams> listTeams(Long pageSize, Long pageToken, String orderBy, Boolean sortDirDesc) {
-
-        final List<Team> teamList = teamService.listTeams(pageSize, pageToken, orderBy, sortDirDesc);
-
-        final PaginatedTeams paginatedTeams = new PaginatedTeams();
-        paginatedTeams.setTeams(teamMapper.teamsToTeamOuts(teamList));
-
-        return ResponseEntity.ok(paginatedTeams);
+    public ResponseEntity<List<TeamOut>> listTeams() {
+        return ResponseEntity.ok(teamMapper.teamsToTeamOuts(teamService.listTeams()));
     }
 
     @Override

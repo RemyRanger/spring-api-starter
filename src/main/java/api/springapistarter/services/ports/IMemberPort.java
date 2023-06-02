@@ -17,7 +17,7 @@ public interface IMemberPort {
 
     Optional<Member> findById(Long id);
 
-    List<Member> findAllPaginated(Long pageSize, Long pageToken, String orderBy, Boolean sortDirDesc);
+    List<Member> findAll();
 
     void update(Long id, Member entity);
 }

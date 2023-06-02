@@ -38,8 +38,8 @@ public class MemberService implements IMemberService {
     }
 
     @Override
-    public List<Member> listMembers(Long pageSize, Long pageToken, String orderBy, Boolean sortDirDesc) {
-        return memberAdapter.findAllPaginated(pageSize, pageToken, orderBy, sortDirDesc);
+    public List<Member> listMembers() {
+        return memberAdapter.findAll();
     }
 
     @Override
