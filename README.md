@@ -12,6 +12,10 @@ See [Redoc / Openapi Documentation](https://remyranger.github.io/spring-api-star
 * MySQL
 * Task & npx (to generate documentation): https://taskfile.dev/ https://github.com/npm/npx
 
+# Postman
+
+Try it with postman. Import collection available in dir /postman .
+
 # Generate Documentation (optional)
 
 To build all OpenAPI bundles to one unique file and generate static html file documentation, use :

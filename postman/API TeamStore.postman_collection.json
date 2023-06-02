@@ -1,0 +1,4087 @@
+{
+	"info": {
+		"_postman_id": "54564ef0-321d-4038-b0dc-e9468add175b",
+		"name": "API TeamStore",
+		"description": "API TeamStore\n\n# Authentication\n\nToken JWT (todo) - Auth is not implemented yet ..\n\n<!-- ReDoc-Inject: <security-definitions> -->\n\nContact Support:\n Name: Ranger Rémy\n Email: remy.ranger@gmail.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "members",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get Member",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/members/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"members",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) Member ID"
+										}
+									]
+								},
+								"description": "Returns a Member based on a single ID"
+							},
+							"response": [
+								{
+									"name": "Successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"create_at\": \"2021-01-07T11:51:45.000Z\",\n  \"first_name\": \"Harry\",\n  \"id\": 1554029,\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\",\n  \"team_id\": 643324,\n  \"update_at\": \"2021-01-07T11:51:45.000Z\"\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Unauthorized\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Forbidden\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Not Found\"\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Internal Server Error\"\n}"
+								},
+								{
+									"name": "Service Unavailable",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Service Unavailable",
+									"code": 503,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Service Unavailable\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Member",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"team_id\": 1,\n  \"first_name\": \"John\",\n  \"last_name\": \"Wick\",\n  \"status\": \"backend\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/members/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"members",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "5",
+											"description": "(Required) Member ID"
+										}
+									]
+								},
+								"description": "Update a Member based on a single ID"
+							},
+							"response": [
+								{
+									"name": "Successful operation - No content",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"team_id\": 643324,\n  \"first_name\": \"Harry\",\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"team_id\": 643324,\n  \"first_name\": \"Harry\",\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Bad Request\"\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"team_id\": 643324,\n  \"first_name\": \"Harry\",\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Unauthorized\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"team_id\": 643324,\n  \"first_name\": \"Harry\",\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Forbidden\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"team_id\": 643324,\n  \"first_name\": \"Harry\",\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Not Found\"\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"team_id\": 643324,\n  \"first_name\": \"Harry\",\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Internal Server Error\"\n}"
+								},
+								{
+									"name": "Service Unavailable",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"team_id\": 643324,\n  \"first_name\": \"Harry\",\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Service Unavailable",
+									"code": 503,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Service Unavailable\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Member",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/members/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"members",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) Member ID"
+										}
+									]
+								},
+								"description": "Delete a Member based on a single ID"
+							},
+							"response": [
+								{
+									"name": "Successful operation - No content",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Bad Request\"\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Unauthorized\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Forbidden\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Not Found\"\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Internal Server Error\"\n}"
+								},
+								{
+									"name": "Service Unavailable",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/members/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"members",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Member ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Service Unavailable",
+									"code": 503,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Service Unavailable\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "List Members",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/members",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"members"
+							],
+							"variable": [
+								{
+									"key": "env",
+									"value": "{{env}}",
+									"description": "environment (This can only be one of ci,staging)"
+								}
+							]
+						},
+						"description": "List Members with pagination."
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/members?page_size=10&page_token=1&order_by=ex elit ullamco in&sort_dir_desc=false",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"members"
+									],
+									"query": [
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "page_token",
+											"value": "1"
+										},
+										{
+											"key": "order_by",
+											"value": "ex elit ullamco in"
+										},
+										{
+											"key": "sort_dir_desc",
+											"value": "false"
+										}
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"count\": 18,\n  \"books\": [\n    {\n      \"create_at\": \"2021-01-07T11:51:45.000Z\",\n      \"first_name\": \"Harry\",\n      \"id\": 1554029,\n      \"last_name\": \"Potter\",\n      \"status\": \"frontend\",\n      \"team_id\": 643324,\n      \"update_at\": \"2021-01-07T11:51:45.000Z\"\n    },\n    {\n      \"create_at\": \"2021-01-07T11:51:45.000Z\",\n      \"first_name\": \"Harry\",\n      \"id\": 1554029,\n      \"last_name\": \"Potter\",\n      \"status\": \"frontend\",\n      \"team_id\": 643324,\n      \"update_at\": \"2021-01-07T11:51:45.000Z\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/members?page_size=10&page_token=1&order_by=ex elit ullamco in&sort_dir_desc=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"members"
+									],
+									"query": [
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "page_token",
+											"value": "1"
+										},
+										{
+											"key": "order_by",
+											"value": "ex elit ullamco in"
+										},
+										{
+											"key": "sort_dir_desc",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Bad Request\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/members?page_size=10&page_token=1&order_by=ex elit ullamco in&sort_dir_desc=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"members"
+									],
+									"query": [
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "page_token",
+											"value": "1"
+										},
+										{
+											"key": "order_by",
+											"value": "ex elit ullamco in"
+										},
+										{
+											"key": "sort_dir_desc",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Unauthorized\"\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/members?page_size=10&page_token=1&order_by=ex elit ullamco in&sort_dir_desc=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"members"
+									],
+									"query": [
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "page_token",
+											"value": "1"
+										},
+										{
+											"key": "order_by",
+											"value": "ex elit ullamco in"
+										},
+										{
+											"key": "sort_dir_desc",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Forbidden\"\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/members?page_size=10&page_token=1&order_by=ex elit ullamco in&sort_dir_desc=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"members"
+									],
+									"query": [
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "page_token",
+											"value": "1"
+										},
+										{
+											"key": "order_by",
+											"value": "ex elit ullamco in"
+										},
+										{
+											"key": "sort_dir_desc",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Internal Server Error\"\n}"
+						},
+						{
+							"name": "Service Unavailable",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/members?page_size=10&page_token=1&order_by=ex elit ullamco in&sort_dir_desc=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"members"
+									],
+									"query": [
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "page_token",
+											"value": "1"
+										},
+										{
+											"key": "order_by",
+											"value": "ex elit ullamco in"
+										},
+										{
+											"key": "sort_dir_desc",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Service Unavailable\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Member",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"team_id\": 2,\n  \"first_name\": \"Harry\",\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/members",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"members"
+							],
+							"variable": [
+								{
+									"key": "env",
+									"value": "{{env}}",
+									"description": "environment (This can only be one of ci,staging)"
+								}
+							]
+						},
+						"description": "Create a Member in database."
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"team_id\": 643324,\n  \"first_name\": \"Harry\",\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/members",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"members"
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"create_at\": \"2021-01-07T11:51:45.000Z\",\n  \"first_name\": \"Harry\",\n  \"id\": 1554029,\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\",\n  \"team_id\": 643324,\n  \"update_at\": \"2021-01-07T11:51:45.000Z\"\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"team_id\": 643324,\n  \"first_name\": \"Harry\",\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/members",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"members"
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Bad Request\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"team_id\": 643324,\n  \"first_name\": \"Harry\",\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/members",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"members"
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Unauthorized\"\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"team_id\": 643324,\n  \"first_name\": \"Harry\",\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/members",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"members"
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Forbidden\"\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"team_id\": 643324,\n  \"first_name\": \"Harry\",\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/members",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"members"
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Internal Server Error\"\n}"
+						},
+						{
+							"name": "Service Unavailable",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"team_id\": 643324,\n  \"first_name\": \"Harry\",\n  \"last_name\": \"Potter\",\n  \"status\": \"frontend\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/members",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"members"
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Service Unavailable\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "teams",
+			"item": [
+				{
+					"name": "{id}",
+					"item": [
+						{
+							"name": "Get Team",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/teams/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"teams",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "2",
+											"description": "(Required) Team ID"
+										}
+									]
+								},
+								"description": "Returns a Team based on a single ID"
+							},
+							"response": [
+								{
+									"name": "Successful operation",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"create_at\": \"2021-01-07T11:51:45.000Z\",\n  \"id\": 1554029,\n  \"members\": [\n    {\n      \"create_at\": \"2021-01-07T11:51:45.000Z\",\n      \"first_name\": \"Harry\",\n      \"id\": 1554029,\n      \"last_name\": \"Potter\",\n      \"status\": \"frontend\",\n      \"team_id\": 643324,\n      \"update_at\": \"2021-01-07T11:51:45.000Z\"\n    },\n    {\n      \"create_at\": \"2021-01-07T11:51:45.000Z\",\n      \"first_name\": \"Harry\",\n      \"id\": 1554029,\n      \"last_name\": \"Potter\",\n      \"status\": \"frontend\",\n      \"team_id\": 643324,\n      \"update_at\": \"2021-01-07T11:51:45.000Z\"\n    }\n  ],\n  \"name\": \"Les semi-croutillants\",\n  \"update_at\": \"2021-01-07T11:51:45.000Z\"\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Unauthorized\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Forbidden\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Not Found\"\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Internal Server Error\"\n}"
+								},
+								{
+									"name": "Service Unavailable",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Service Unavailable",
+									"code": 503,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Service Unavailable\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Team",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Team michou\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/teams/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"teams",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "1",
+											"description": "(Required) Team ID"
+										}
+									]
+								},
+								"description": "Update a Team based on a single ID"
+							},
+							"response": [
+								{
+									"name": "Successful operation - No content",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Les semi-croutillants\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Les semi-croutillants\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Bad Request\"\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Les semi-croutillants\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Unauthorized\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Les semi-croutillants\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Forbidden\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Les semi-croutillants\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Not Found\"\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Les semi-croutillants\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Internal Server Error\"\n}"
+								},
+								{
+									"name": "Service Unavailable",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"Les semi-croutillants\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Service Unavailable",
+									"code": 503,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Service Unavailable\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Team",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/teams/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"teams",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "3",
+											"description": "(Required) Team ID"
+										}
+									]
+								},
+								"description": "Delete a Team based on a single ID. All linked members will be deleted too !"
+							},
+							"response": [
+								{
+									"name": "Successful operation - No content",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "No Content",
+									"code": 204,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								},
+								{
+									"name": "Bad Request",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Bad Request\"\n}"
+								},
+								{
+									"name": "Unauthorized",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Unauthorized\"\n}"
+								},
+								{
+									"name": "Forbidden",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Forbidden",
+									"code": 403,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Forbidden\"\n}"
+								},
+								{
+									"name": "Not Found",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Not Found\"\n}"
+								},
+								{
+									"name": "Internal Server Error",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Internal Server Error\"\n}"
+								},
+								{
+									"name": "Service Unavailable",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"description": "Added as a part of security scheme: bearer",
+												"key": "Authorization",
+												"value": "Bearer <token>"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/teams/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"teams",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "46283521",
+													"description": "(Required) Team ID"
+												},
+												{
+													"key": "env",
+													"value": "{{env}}",
+													"description": "environment (This can only be one of ci,staging)"
+												}
+											]
+										}
+									},
+									"status": "Service Unavailable",
+									"code": 503,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"errorMessage\": \"Service Unavailable\"\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "List Teams",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/teams",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"teams"
+							],
+							"variable": [
+								{
+									"key": "env",
+									"value": "{{env}}",
+									"description": "environment (This can only be one of ci,staging)"
+								}
+							]
+						},
+						"description": "List Teams with pagination."
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/teams?page_size=10&page_token=1&order_by=ex elit ullamco in&sort_dir_desc=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"teams"
+									],
+									"query": [
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "page_token",
+											"value": "1"
+										},
+										{
+											"key": "order_by",
+											"value": "ex elit ullamco in"
+										},
+										{
+											"key": "sort_dir_desc",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"count\": 18,\n  \"teams\": [\n    {\n      \"create_at\": \"2021-01-07T11:51:45.000Z\",\n      \"id\": 1554029,\n      \"members\": [\n        {\n          \"create_at\": \"2021-01-07T11:51:45.000Z\",\n          \"first_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": 1554029,\n          \"last_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"team_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"update_at\": \"2021-01-07T11:51:45.000Z\"\n        },\n        {\n          \"create_at\": \"2021-01-07T11:51:45.000Z\",\n          \"first_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": 1554029,\n          \"last_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"team_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"update_at\": \"2021-01-07T11:51:45.000Z\"\n        }\n      ],\n      \"name\": \"Les semi-croutillants\",\n      \"update_at\": \"2021-01-07T11:51:45.000Z\"\n    },\n    {\n      \"create_at\": \"2021-01-07T11:51:45.000Z\",\n      \"id\": 1554029,\n      \"members\": [\n        {\n          \"create_at\": \"2021-01-07T11:51:45.000Z\",\n          \"first_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": 1554029,\n          \"last_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"team_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"update_at\": \"2021-01-07T11:51:45.000Z\"\n        },\n        {\n          \"create_at\": \"2021-01-07T11:51:45.000Z\",\n          \"first_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"id\": 1554029,\n          \"last_name\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"status\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"team_id\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"update_at\": \"2021-01-07T11:51:45.000Z\"\n        }\n      ],\n      \"name\": \"Les semi-croutillants\",\n      \"update_at\": \"2021-01-07T11:51:45.000Z\"\n    }\n  ]\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/teams?page_size=10&page_token=1&order_by=ex elit ullamco in&sort_dir_desc=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"teams"
+									],
+									"query": [
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "page_token",
+											"value": "1"
+										},
+										{
+											"key": "order_by",
+											"value": "ex elit ullamco in"
+										},
+										{
+											"key": "sort_dir_desc",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Bad Request\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/teams?page_size=10&page_token=1&order_by=ex elit ullamco in&sort_dir_desc=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"teams"
+									],
+									"query": [
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "page_token",
+											"value": "1"
+										},
+										{
+											"key": "order_by",
+											"value": "ex elit ullamco in"
+										},
+										{
+											"key": "sort_dir_desc",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Unauthorized\"\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/teams?page_size=10&page_token=1&order_by=ex elit ullamco in&sort_dir_desc=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"teams"
+									],
+									"query": [
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "page_token",
+											"value": "1"
+										},
+										{
+											"key": "order_by",
+											"value": "ex elit ullamco in"
+										},
+										{
+											"key": "sort_dir_desc",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Forbidden\"\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/teams?page_size=10&page_token=1&order_by=ex elit ullamco in&sort_dir_desc=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"teams"
+									],
+									"query": [
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "page_token",
+											"value": "1"
+										},
+										{
+											"key": "order_by",
+											"value": "ex elit ullamco in"
+										},
+										{
+											"key": "sort_dir_desc",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Internal Server Error\"\n}"
+						},
+						{
+							"name": "Service Unavailable",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/teams?page_size=10&page_token=1&order_by=ex elit ullamco in&sort_dir_desc=true",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"teams"
+									],
+									"query": [
+										{
+											"key": "page_size",
+											"value": "10"
+										},
+										{
+											"key": "page_token",
+											"value": "1"
+										},
+										{
+											"key": "order_by",
+											"value": "ex elit ullamco in"
+										},
+										{
+											"key": "sort_dir_desc",
+											"value": "true"
+										}
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Service Unavailable\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Team",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Les semi-croustillants\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/teams",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"teams"
+							],
+							"variable": [
+								{
+									"key": "env",
+									"value": "{{env}}",
+									"description": "environment (This can only be one of ci,staging)"
+								}
+							]
+						},
+						"description": "Create a Team in database."
+					},
+					"response": [
+						{
+							"name": "Successful operation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Les semi-croutillants\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/teams",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"teams"
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"create_at\": \"2021-01-07T11:51:45.000Z\",\n  \"id\": 1554029,\n  \"members\": [\n    {\n      \"create_at\": \"2021-01-07T11:51:45.000Z\",\n      \"first_name\": \"Harry\",\n      \"id\": 1554029,\n      \"last_name\": \"Potter\",\n      \"status\": \"frontend\",\n      \"team_id\": 643324,\n      \"update_at\": \"2021-01-07T11:51:45.000Z\"\n    },\n    {\n      \"create_at\": \"2021-01-07T11:51:45.000Z\",\n      \"first_name\": \"Harry\",\n      \"id\": 1554029,\n      \"last_name\": \"Potter\",\n      \"status\": \"frontend\",\n      \"team_id\": 643324,\n      \"update_at\": \"2021-01-07T11:51:45.000Z\"\n    }\n  ],\n  \"name\": \"Les semi-croutillants\",\n  \"update_at\": \"2021-01-07T11:51:45.000Z\"\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Les semi-croutillants\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/teams",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"teams"
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Bad Request\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Les semi-croutillants\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/teams",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"teams"
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Unauthorized\"\n}"
+						},
+						{
+							"name": "Forbidden",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Les semi-croutillants\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/teams",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"teams"
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Forbidden\"\n}"
+						},
+						{
+							"name": "Internal Server Error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Les semi-croutillants\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/teams",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"teams"
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Internal Server Error\"\n}"
+						},
+						{
+							"name": "Service Unavailable",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": "Added as a part of security scheme: bearer",
+										"key": "Authorization",
+										"value": "Bearer <token>"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"Les semi-croutillants\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/teams",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"teams"
+									],
+									"variable": [
+										{
+											"key": "env",
+											"value": "{{env}}",
+											"description": "environment (This can only be one of ci,staging)"
+										}
+									]
+								}
+							},
+							"status": "Service Unavailable",
+							"code": 503,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"errorMessage\": \"Service Unavailable\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Health Check",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/healthcheck",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"healthcheck"
+					],
+					"variable": [
+						{
+							"key": "env",
+							"value": "{{env}}",
+							"description": "environment (This can only be one of ci,staging)"
+						}
+					]
+				},
+				"description": "The healthcheck endpoint retrieve 200 code if service is up."
+			},
+			"response": [
+				{
+					"name": "Request succeed",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/healthcheck",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"healthcheck"
+							],
+							"variable": [
+								{
+									"key": "env",
+									"value": "{{env}}",
+									"description": "environment (This can only be one of ci,staging)"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"name": "Bad Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/healthcheck",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"healthcheck"
+							],
+							"variable": [
+								{
+									"key": "env",
+									"value": "{{env}}",
+									"description": "environment (This can only be one of ci,staging)"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"errorMessage\": \"Bad Request\"\n}"
+				},
+				{
+					"name": "Service Unavailable",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/healthcheck",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"healthcheck"
+							],
+							"variable": [
+								{
+									"key": "env",
+									"value": "{{env}}",
+									"description": "environment (This can only be one of ci,staging)"
+								}
+							]
+						}
+					},
+					"status": "Service Unavailable",
+					"code": 503,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"errorMessage\": \"Service Unavailable\"\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearerToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "env",
+			"value": "staging"
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080/v1/teamstore"
+		}
+	]
+}
