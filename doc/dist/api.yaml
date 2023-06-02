@@ -55,7 +55,7 @@ paths:
       tags:
         - Members
       summary: List Members
-      description: List Members with pagination.
+      description: List All Members.
       operationId: ListMembers
       responses:
         '200':
@@ -174,7 +174,7 @@ paths:
       tags:
         - Teams
       summary: List Teams
-      description: List Teams with pagination.
+      description: List All Teams.
       operationId: ListTeams
       responses:
         '200':

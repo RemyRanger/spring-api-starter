@@ -5,6 +5,6 @@ properties:
   name:
     type: string
     description: Nom de l'équipe
-    example: 'Les semi-croutillants'
+    example: 'Team raclette'
     x-oapi-codegen-extra-tags:
       validate: 'required'

@@ -2,7 +2,7 @@ get:
   tags:
     - Members
   summary: List Members
-  description: List Members with pagination.
+  description: List All Members.
   operationId: ListMembers
   responses:
     '200':

@@ -2,7 +2,7 @@ get:
   tags:
     - Teams
   summary: List Teams
-  description: List Teams with pagination.
+  description: List All Teams.
   operationId: ListTeams
   responses:
     '200':

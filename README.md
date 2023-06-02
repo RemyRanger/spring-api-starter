@@ -14,9 +14,9 @@ See [Redoc / Openapi Documentation](https://remyranger.github.io/spring-api-star
 
 # Generate Documentation (optional)
 
-To build all OpenAPI bundles to one unique file and generate static html file documentation.
+To build all OpenAPI bundles to one unique file and generate static html file documentation, use :
 
-`task generate_docs`
+`$ task generate_docs`
 
 File generated in /doc/dist is used by Maven for interface generation on build.
 
