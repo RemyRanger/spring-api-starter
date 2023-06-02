@@ -32,7 +32,7 @@ jobs:
       shell: bash
       run: |
         npx @redocly/cli@latest bundle -o doc/dist/api.yaml --ext yaml && \
-        npx @redocly/cli@latest build-docs doc/dist/api.yaml
+        npx @redocly/cli@latest build-docs doc/dist/api.yaml -o index.html
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
@@ -46,9 +46,7 @@ jobs:
 
   #Build's job
   build:
-    #Depends on sonar's job
     name: Build
-    #Run on Ubuntu using the latest version
     runs-on: ubuntu-latest
     steps:
       #Check-out your repository under $GITHUB_WORKSPACE, so your workflow can access it
