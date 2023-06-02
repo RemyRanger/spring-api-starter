@@ -22,8 +22,8 @@ jobs:
       id: redoc-build
       shell: bash
       run: |
-        npx redoc-cli bundle -o doc/dist/api.yaml --ext yaml && \
-        npx redoc-cli build-docs doc/dist/api.yaml
+        npx @redocly/cli@latest bundle -o doc/dist/api.yaml --ext yaml && \
+        npx @redocly/cli@latest build-docs doc/dist/api.yaml
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
