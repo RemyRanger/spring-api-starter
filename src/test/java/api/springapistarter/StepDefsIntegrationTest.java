@@ -2,16 +2,11 @@ package api.springapistarter;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.json.JSONObject;
-import org.openapitools.model.TeamOut;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.client.ResourceAccessException;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
