@@ -88,7 +88,7 @@ paths:
             schema:
               $ref: '#/components/schemas/memberIn'
       responses:
-        '201':
+        '200':
           description: Successful operation
           content:
             application/json:
@@ -207,7 +207,7 @@ paths:
             schema:
               $ref: '#/components/schemas/teamIn'
       responses:
-        '201':
+        '200':
           description: Successful operation
           content:
             application/json:
@@ -371,7 +371,7 @@ components:
         name:
           type: string
           description: Nom de l'équipe
-          example: Les semi-croutillants
+          example: Team raclette
           x-oapi-codegen-extra-tags:
             validate: required
     teamOut:

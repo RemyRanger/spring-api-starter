@@ -32,7 +32,7 @@ public class MemberController implements MembersApi {
     @Override
     public ResponseEntity<Void> deleteMember(Long id) {
         memberService.deleteMember(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @Override
@@ -54,6 +54,6 @@ public class MemberController implements MembersApi {
     @Override
     public ResponseEntity<Void> updateMember(Long id, MemberIn memberIn) {
         memberService.updateMember(id, memberMapper.memberInToMember(memberIn));
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }

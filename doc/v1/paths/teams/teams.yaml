@@ -36,7 +36,7 @@ post:
         schema:
           $ref: '../../components/schemas/teams/teamIn.yaml'
   responses:
-    '201':
+    '200':
       description: Successful operation
       content:
         application/json:

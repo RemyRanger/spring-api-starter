@@ -32,7 +32,7 @@ public class TeamController implements TeamsApi {
     @Override
     public ResponseEntity<Void> deleteTeam(Long id) {
         teamService.deleteTeam(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 
     @Override
@@ -54,6 +54,6 @@ public class TeamController implements TeamsApi {
     @Override
     public ResponseEntity<Void> updateTeam(Long id, TeamIn teamIn) {
         teamService.updateTeam(id, teamMapper.teamInToTeam(teamIn));
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
